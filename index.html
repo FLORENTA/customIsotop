@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Classement Images </title>
+	<meta charset="UTF-8"/>
+	<meta name="author" content="Florent Alemany, Wild Code School"/>
+	<style>
+		/* To take */
+		body{
+			overflow-y: scroll;
+			margin: 0;
+			font-family: "arial", sans-serif;
+		}
+		
+		.container_classify{
+			position: relative;
+			margin: 50px auto;
+			height: 50px;
+			padding: 0;
+		}
+
+		#list-categories{
+			display: flex;
+			flex-wrap: wrap;
+			list-style: none;
+			height: auto;
+			align-items: center;
+			margin: 50px auto 0 auto;
+			border: 1px solid #c8c8c8;
+			padding: 0;
+		}
+
+		#list-categories li{
+			text-align: center;
+			cursor: pointer;
+			height: 50px;
+			line-height: 50px;
+			width: 12.5%;
+		}
+
+		#list-categories li:hover{
+			background: grey;
+			color: #fff;
+		}
+
+		.container_classify .article{
+			position: absolute;
+			transition: opacity 500ms, top 500ms;
+			-webkit-transition: opacity 500ms;
+			-moz-transition: opacity 500ms;
+			opacity: 0;
+		}
+
+		.container_classify .article img{
+			width: 100%;
+		}
+		
+		@media all and (max-width: 768px){
+			#list-categories li{
+				width: 100%;
+			}
+		}
+		
+		/* end To Take */
+		
+		footer, 
+		p{
+			width: 100%;
+			color: #fff;
+			background: black;
+			text-align: center;
+			height: 50px;
+			line-height: 50px;
+			margin: 0;
+		}
+		
+		p{
+			transition: opacity 1s;
+		}
+		
+		#getCode{
+			height: 200px;
+			width: 80%;
+			overflow-y: scroll;
+			margin: 20px auto;
+			border: 1px solid #c8c8c8;
+		}
+
+	</style>
+</head>
+<body>
+	<p> Chargement des images en cours. Patienter.</p>
+	<ul id="list-categories">
+        <li id="all"> Tous </li>
+		
+		<!--- Loop of categories here --->
+		
+		<li id="rouge">Rouge</li>
+		<li id="jaune">Jaune</li>
+		<li id="vert">Vert</li>
+		<li id="bleu">Bleu</li>
+		<li id="violet">Violet</li>
+		<li id="blanc">Blanc</li>
+		<li id="noir">Noir</li>
+		<li id="gris">Gris</li>
+		<li id="marron">Marron</li>
+		
+		<!--- endloop ---->
+		
+    </ul>
+	
+	<!--- 
+	Attributes for the "container_classify" class container : 
+		  data-width : normal width of container for tablets and desktop in % 
+		  data-width-mobile : width of container for smartphones in %
+		  data-col-large : number of columns for desktops
+		  data-col-medium : number of columns for tablets
+		  data-col-small : number of columns for smartphone
+		  
+	Attributes for the article div : 
+		  class article : to be be set width the corresponding css above
+		  data-category 
+    ----->		
+	
+    <div class="container_classify" data-width="80" data-width-mobile="98" data-col-large="5" data-col-medium="3" data-col-small="1">
+		<!--- loop of article and their respective category --->
+		<div class="article" data-category="vert">
+			<img src="https://cdn.pixabay.com/photo/2016/01/16/18/05/kiwi-1143717_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="jaune">
+			<img src="https://cdn.pixabay.com/photo/2014/06/17/07/21/yellow-370256_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="rouge">
+			<img src="https://cdn.pixabay.com/photo/2016/10/26/09/19/arbutus-1771003_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="bleu">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/1x/Colorful-Peacock-Animal-Nature-Bird-Vibrant-Color-2201428.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="bleu">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/1x/Spring-Flower-Flowers-Flower-Violet-Close-Hyacinth-1403653.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="noir">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/1x/Board-Chalk-School-Empty-Slate-Blackboard-916678.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="blanc">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/1x/Mountain-Station-Aiguille-Du-Midi-Chamonix-1602756.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="rouge">
+			<img src="https://cdn.pixabay.com/photo/2016/07/03/23/18/raspberries-1495713_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="jaune">
+			<img src="https://cdn.pixabay.com/photo/2016/01/03/17/59/bananas-1119790_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="blanc">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/1x/Climbing-Mont-Blanc-Mountaineering-Group-Of-People-1198588.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="violet">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/1x/Fruit-Basket-Fruit-Blue-Plums-Violet-Fruits-Plum-1649316.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="violet">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/1x/Sweet-Plums-Eat-Purple-By-Violet-Fruit-Jam-Cook-1584172.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="violet">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/640/Orchid-Flora-Dendrobium-Orchidaceae-Flower-Purple-172206.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="noir">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/1x/Candlelight-Flame-Candle-Background-Light-2038736.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="noir">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/640/Black-White-Truss-Road-Town-Old-Town-Paved-949832.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="vert">
+			<img src="https://cdn.pixabay.com/photo/2011/03/16/16/03/paprika-5358_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="vert">
+			<img src="https://cdn.pixabay.com/photo/2016/07/21/09/04/apple-1532055_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="rouge">
+			<img src="https://cdn.pixabay.com/photo/2013/11/28/09/58/mug-219844_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="rouge">
+			<img src="https://cdn.pixabay.com/photo/2015/06/17/17/20/rose-812765_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="rouge">
+			<img src="https://cdn.pixabay.com/photo/2015/03/06/13/45/apple-661694_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="vert">
+			<img src="https://cdn.pixabay.com/photo/2017/03/29/11/48/meadow-2184989_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="vert">
+			<img src="https://cdn.pixabay.com/photo/2013/06/26/17/57/leaf-141494_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="bleu">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/640/Sky-Half-Moon-Clouds-Blue-187698.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="bleu">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/1x/Space-Blue-Moon-Half-Moon-Sky-Mood-Astronomy-769918.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="bleu">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/1x/High-Fly-Flying-Birds-Wildlife-Migrating-216826.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="bleu">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/1x/Clothes-Peg-Laundry-Spring-Blue-155094.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="bleu">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/1x/Ice-Winter-Blue-1125335.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="rouge">
+			<img src="https://cdn.pixabay.com/photo/2015/07/23/08/58/ara-856574_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="violet">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/1x/Silhouettes-Dancers-Ballet-Dance-Woman-111705.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="violet">
+			<img src="https://cdn.pixabay.com/photo/2015/06/01/16/43/clematis-793754_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="violet">
+			<img src="https://cdn.pixabay.com/photo/2012/11/21/10/37/plant-66809_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="violet">
+			<img src="https://cdn.pixabay.com/photo/2013/10/24/16/00/flowers-200270_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="noir">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/1x/Reflection-Alarm-Clock-Black-And-White-Clock-Dial-565645.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="noir">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/1x/Office-Pen-Office-Accessories-Lid-Leave-62374.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="noir">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/1x/Cats-Silhouette-Cats-Eyes-Silhouette-Cat-694730.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="blanc">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/1x/Ebro-Delta-Little-Egret-Water-Bird-Martinet-Blanc-2204284.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="blanc">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/1x/Hut-Gouter-Hut-Refuge-Du-Gouter-Modern-Mont-Blanc-1602785.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="jaune">
+			<img src="https://cdn.pixabay.com/photo/2013/10/15/09/20/flower-195897_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="jaune">
+			<img src="https://cdn.pixabay.com/photo/2013/10/16/16/59/yellow-rose-196393_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="jaune">
+			<img src="https://cdn.pixabay.com/photo/2016/01/24/00/20/buick-1158293_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="jaune">
+			<img src="https://cdn.pixabay.com/photo/2016/07/12/21/23/zucchini-1513112_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="gris">
+			<img src="http://maxpixel.freegreatpicture.com/static/photo/1x/Madera-Nature-Gris-Curved-Grey-Wood-302463.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="gris">
+			<img src="https://cdn.pixabay.com/photo/2014/05/26/14/45/rain-354617_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="gris">
+			<img src="https://cdn.pixabay.com/photo/2013/04/12/13/43/water-102952_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="gris">
+			<img src="https://cdn.pixabay.com/photo/2014/07/05/08/51/water-drop-384649_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="gris">
+			<img src="https://cdn.pixabay.com/photo/2015/09/09/18/03/old-932218_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="marron">
+			<img src="https://cdn.pixabay.com/photo/2015/10/18/11/19/chestnuts-994138_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="marron">
+			<img src="https://cdn.pixabay.com/photo/2015/12/01/20/28/autumn-1072827_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<div class="article" data-category="marron">
+			<img src="https://cdn.pixabay.com/photo/2016/11/08/21/47/horse-1809543_960_720.jpg"/>
+			<!--- Some other divs here ... --->
+		</div>
+		<!--- endloop --->
+    </div>
+	
+	<div id="getCode" contenteditable="true">
+	<b>HTML File</b><br /><br >
+	
+		&lt;body&gt;<br />
+
+	&lt;ul id="list-categories"&gt;<br />
+        &nbsp;&nbsp;&lt;li id="all"&gt; Tous &lt;/li&gt;<br /><br />
+		
+		&nbsp;&nbsp;&lt;!--- Loop of categories here ---&gt;<br /><br />
+		
+		&nbsp;&nbsp;&lt;li id="######"&gt;######&lt;/li&gt;<br />
+		&nbsp;&nbsp;&lt;li id="######"&gt;######&lt;/li&gt;<br />
+		&nbsp;&nbsp;&lt;li id="######"&gt;######&lt;/li&gt;<br />
+		&nbsp;&nbsp;&lt;li id="######"&gt;######&lt;/li&gt;<br />
+		&nbsp;&nbsp;&lt;li id="######"&gt;######&lt;/li&gt;<br />
+		&nbsp;&nbsp;&lt;li id="######"&gt;######&lt;/li&gt;<br />
+		&nbsp;&nbsp;&lt;li id="######"&gt;######&lt;/li&gt;<br />
+		&nbsp;&nbsp;&lt;li id="######"&gt;######&lt;/li&gt;<br />
+		&nbsp;&nbsp;&lt;li id="######"&gt;######&lt;/li&gt;<br /><br />
+
+		&nbsp;&nbsp;&lt;!--- endloop ----&gt;<br />
+		
+    &lt;/ul&gt;<br /><br />
+	
+	&lt;!--- <br />
+	Attributes for the "container_classify" class container : <br />
+		  data-width : normal width of container for tablets and desktop in % <br /> 
+		  data-width-mobile : width of container for smartphones in % <br />
+		  data-col-large : number of columns for desktops <br />
+		  data-col-medium : number of columns for tablets <br />
+		  data-col-small : number of columns for smartphone <br /><br />
+		  
+	Attributes for the article div : <br />
+		  class article : to be be set width the corresponding css above <br />
+		  data-category <br />
+    -----&gt;		<br /><br />
+	
+    &nbsp;&nbsp;&lt;div class="container_classify" data-width="80" data-width-mobile="98" data-col-large="5" data-col-medium="3" data-col-small="1"&gt; <br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--- loop of articles and their respective category (link with the id in the UL list) ---&gt;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="article" data-category="##########"&gt;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="###############"/&gt;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--- Some other divs here ... ---&gt;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />
+	&nbsp;&nbsp;&lt;/div&gt; <br /> <br />
+	&lt;/body&gt;<br /> <br />
+	
+	<b>CSS File</b> <br /> <br />
+	
+		body{
+			overflow-y: scroll;
+			margin: 0;
+			font-family: "arial", sans-serif;
+		}
+		
+		.container_classify{
+			position: relative;
+			margin: 50px auto;
+			height: 50px;
+			padding: 0;
+		}
+
+		#list-categories{
+			display: flex;
+			flex-wrap: wrap;
+			list-style: none;
+			height: auto;
+			align-items: center;
+			margin: 50px auto 0 auto;
+			border: 1px solid #c8c8c8;
+			padding: 0;
+		}
+
+		#list-categories li{
+			text-align: center;
+			cursor: pointer;
+			height: 50px;
+			line-height: 50px;
+			width: 12.5%;
+		}
+
+		#list-categories li:hover{
+			background: grey;
+			color: #fff;
+		}
+
+		.container_classify .article{
+			position: absolute;
+			transition: opacity 500ms, top 500ms;
+			-webkit-transition: opacity 500ms;
+			-moz-transition: opacity 500ms;
+			opacity: 0;
+		}
+
+		.container_classify .article img{
+			width: 100%;
+		}
+		
+		@media all and (max-width: 768px){
+			#list-categories li{
+				width: 100%;
+			}
+		}<br /> <br />
+		
+	<b>JS File</b> <br /> <br />	
+	
+	var containerElt = document.getElementsByClassName("container_classify")[0];
+	var articlesElt = document.querySelectorAll(".article");
+	var ulElt = document.getElementById("list-categories");
+	var nbOfCols;
+	var containerWidth = containerElt.getAttribute("data-width");
+
+	if(window.innerWidth > 1024){
+		nbOfCols = containerElt.getAttribute("data-col-large");
+
+	}
+	else if(window.innerWidth > 768 && window.innerWidth <= 1024){
+		nbOfCols = containerElt.getAttribute("data-col-medium");
+	}
+	else{
+		nbOfCols = containerElt.getAttribute("data-col-small");
+		containerWidth = containerElt.getAttribute("data-width-mobile");
+	}
+
+	var colWidth = (99 - nbOfCols) / nbOfCols;
+	var categoryList = document.querySelectorAll("#list-categories > li");
+	var pxOfMargin = window.innerWidth*(containerWidth / 100) / 100;
+
+	containerElt.style.width = containerWidth + "%";
+	ulElt.style.width = containerWidth + "%";
+
+
+	window.addEventListener("load", function() {
+
+		function getData(){
+			var id = this.getAttribute("id");
+			var selectedArticles;
+
+			articlesElt = document.querySelectorAll(".article");
+
+			for(var l = 0; l < articlesElt.length; ++l){
+
+				articlesElt[l].style.top = "0";
+				articlesElt[l].style.left = "0";
+				articlesElt[l].style.opacity = "0";
+				articlesElt[l].style.transition = "opacity 0ms";
+				articlesElt[l].style.webkitTransition = "opacity 0ms";
+				articlesElt[l].style.mozTransition = "opacity 0ms";
+
+			}
+
+			if(id !== "all"){
+				selectedArticles = document.querySelectorAll("[data-category="+ id +"");
+			}
+			else{
+				selectedArticles = document.querySelectorAll(".article");
+			}
+
+			positionImages(selectedArticles);
+		}
+
+		categoryList.forEach(function(category){
+		   category.addEventListener("click", getData);
+		});
+
+		function positionImages(x) {
+
+			for (var i = 0; i < x.length; ++i) {
+
+				x[i].style.width = colWidth + "%";
+
+				if (i < nbOfCols) {
+
+					x[i].style.top = pxOfMargin + "px";
+
+					if (i === 0) {
+						x[i].style.left = pxOfMargin + "px";
+					}
+					else {
+						x[i].style.left = x[i - 1].offsetLeft + parseFloat(getComputedStyle(x[i - 1]).width) + pxOfMargin + "px";
+					}
+				}
+				else {
+					x[i].style.top = x[i - nbOfCols].offsetTop + parseFloat(getComputedStyle(x[i - nbOfCols]).height) + 5 + "px";
+
+					if (i % nbOfCols === 0) {
+						x[i].style.left = pxOfMargin + "px";
+					}
+					else {
+						x[i].style.left = x[i - 1].offsetLeft + parseFloat(getComputedStyle(x[i - 1]).width) + pxOfMargin + "px";
+					}
+				}
+
+				x[i].style.transition = "opacity 500ms";
+				x[i].style.webkitTransition = "opacity 500ms";
+				x[i].style.mozTransition = "opacity 500ms";
+				x[i].style.opacity = "1";
+
+				if(i === x.length - 1){
+					var lastRowElts = [];
+
+					if(x.length > nbOfCols) {
+						for (var m = 1; m <= nbOfCols; ++m) {
+							lastRowElts.push(x[x.length - m].offsetTop + parseFloat(getComputedStyle(x[x.length - m]).height));
+						}
+					}
+					else{
+						for (var n = 1; n <= x.length; ++n) {
+							lastRowElts.push(x[x.length - n].offsetTop + parseFloat(getComputedStyle(x[x.length - n]).height));
+						}
+					}
+
+					var nearestToTheBottom = Math.max.apply(null, lastRowElts);
+
+					containerElt.style.height = nearestToTheBottom + 5 + "px";
+
+				}
+			}
+		}
+
+		positionImages(articlesElt);
+
+	});
+
+	</div>
+	<footer> Enjoy ! </footer>
+
+<script type="text/javascript">
+
+	var containerElt = document.getElementsByClassName("container_classify")[0];
+	var articlesElt = document.querySelectorAll(".article");
+	var ulElt = document.getElementById("list-categories");
+	var nbOfCols;
+	var pElt = document.querySelector("p");
+	var containerWidth = containerElt.getAttribute("data-width");
+
+	if(window.innerWidth > 1024){
+		nbOfCols = containerElt.getAttribute("data-col-large");
+
+	}
+	else if(window.innerWidth > 768 && window.innerWidth <= 1024){
+		nbOfCols = containerElt.getAttribute("data-col-medium");
+	}
+	else{
+		nbOfCols = containerElt.getAttribute("data-col-small");
+		containerWidth = containerElt.getAttribute("data-width-mobile");
+	}
+
+	var colWidth = (99 - nbOfCols) / nbOfCols;
+	var categoryList = document.querySelectorAll("#list-categories > li");
+	var pxOfMargin = window.innerWidth*(containerWidth / 100) / 100;
+
+	containerElt.style.width = containerWidth + "%";
+	ulElt.style.width = containerWidth + "%";
+
+
+	window.addEventListener("load", function() {
+
+		function getData(){
+			var id = this.getAttribute("id");
+			var selectedArticles;
+
+			articlesElt = document.querySelectorAll(".article");
+
+			for(var l = 0; l < articlesElt.length; ++l){
+
+				articlesElt[l].style.top = "0";
+				articlesElt[l].style.left = "0";
+				articlesElt[l].style.opacity = "0";
+				articlesElt[l].style.transition = "opacity 0ms";
+				articlesElt[l].style.webkitTransition = "opacity 0ms";
+				articlesElt[l].style.mozTransition = "opacity 0ms";
+
+			}
+
+			if(id !== "all"){
+				selectedArticles = document.querySelectorAll("[data-category="+ id +"");
+			}
+			else{
+				selectedArticles = document.querySelectorAll(".article");
+			}
+
+			positionImages(selectedArticles);
+		}
+
+		categoryList.forEach(function(category){
+		   category.addEventListener("click", getData);
+		});
+
+		function positionImages(x) {
+
+			for (var i = 0; i < x.length; ++i) {
+
+				x[i].style.width = colWidth + "%";
+
+				if (i < nbOfCols) {
+
+					x[i].style.top = pxOfMargin + "px";
+
+					if (i === 0) {
+						x[i].style.left = pxOfMargin + "px";
+					}
+					else {
+						x[i].style.left = x[i - 1].offsetLeft + parseFloat(getComputedStyle(x[i - 1]).width) + pxOfMargin + "px";
+					}
+				}
+				else {
+					x[i].style.top = x[i - nbOfCols].offsetTop + parseFloat(getComputedStyle(x[i - nbOfCols]).height) + 5 + "px";
+
+					if (i % nbOfCols === 0) {
+						x[i].style.left = pxOfMargin + "px";
+					}
+					else {
+						x[i].style.left = x[i - 1].offsetLeft + parseFloat(getComputedStyle(x[i - 1]).width) + pxOfMargin + "px";
+					}
+				}
+
+				x[i].style.transition = "opacity 500ms";
+				x[i].style.webkitTransition = "opacity 500ms";
+				x[i].style.mozTransition = "opacity 500ms";
+				x[i].style.opacity = "1";
+
+				if(i === x.length - 1){
+					var lastRowElts = [];
+
+					if(x.length > nbOfCols) {
+						for (var m = 1; m <= nbOfCols; ++m) {
+							lastRowElts.push(x[x.length - m].offsetTop + parseFloat(getComputedStyle(x[x.length - m]).height));
+						}
+					}
+					else{
+						for (var n = 1; n <= x.length; ++n) {
+							lastRowElts.push(x[x.length - n].offsetTop + parseFloat(getComputedStyle(x[x.length - n]).height));
+						}
+					}
+
+					var nearestToTheBottom = Math.max.apply(null, lastRowElts);
+
+					containerElt.style.height = nearestToTheBottom + 5 + "px";
+
+				}
+			}
+		}
+
+		positionImages(articlesElt);
+		
+		setTimeout(function(){
+			pElt.style.opacity = "0";
+		}, 1000);
+
+	});
+
+</script>
+</body>
+</html>
