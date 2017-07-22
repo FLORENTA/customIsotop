@@ -17,6 +17,7 @@
 			margin: 50px auto;
 			height: 50px;
 			padding: 0;
+			border: 1px solid #c8c8c8;
 		}
 
 		#list-categories{
@@ -85,11 +86,40 @@
 			margin: 20px auto;
 			border: 1px solid #c8c8c8;
 		}
+		
+		form{
+			margin: 20px auto;
+			width: 80%;
+			display: block;
+			background: #fafafa;
+			padding: 10px;
+		}
+		
+		label{
+			display: block;
+		}
+		
+		form input[type="number"]{
+			width: 100px;
+			margin: 5px 0;
+			height: 25px;
+		}
 
 	</style>
 </head>
 <body>
 	<p> Chargement des images en cours. Patienter.</p>
+	<form>
+		<div>
+			<label for="dataCol">Changer le nombre de colonnes (version desktop)</label>
+			<input type="number" id="dataCol" min="1" max="9"/>
+		</div>
+		<div>	
+			<label for="containerWidth">Changer la largeur du container (%)</label>
+			<input type="number" min="50" id="containerWidth" max="100" step="10"/>
+		</div>	
+		<input type="submit"/>
+	</form>
 	<ul id="list-categories">
         <li id="all"> Tous </li>
 		
@@ -414,7 +444,7 @@
 			}
 		}<br /> <br />
 		
-	<b>JS File</b> <br /> <br />	
+	<b>JS File (does not contain the form)</b> <br /> <br />	
 	
 	var containerElt = document.getElementsByClassName("container_classify")[0];
 	var articlesElt = document.querySelectorAll(".article");
@@ -545,6 +575,7 @@
 	var nbOfCols;
 	var pElt = document.querySelector("p");
 	var containerWidth = containerElt.getAttribute("data-width");
+	var formElt = document.querySelector("form");
 
 	if(window.innerWidth > 1024){
 		nbOfCols = containerElt.getAttribute("data-col-large");
@@ -570,7 +601,6 @@
 
 		function getData(){
 			var id = this.getAttribute("id");
-			var selectedArticles;
 
 			articlesElt = document.querySelectorAll(".article");
 
@@ -586,13 +616,13 @@
 			}
 
 			if(id !== "all"){
-				selectedArticles = document.querySelectorAll("[data-category="+ id +"");
+				articlesElt = document.querySelectorAll("[data-category="+ id +"");
 			}
 			else{
-				selectedArticles = document.querySelectorAll(".article");
+				articlesElt = document.querySelectorAll(".article");
 			}
 
-			positionImages(selectedArticles);
+			positionImages(articlesElt);
 		}
 
 		categoryList.forEach(function(category){
@@ -659,7 +689,24 @@
 		setTimeout(function(){
 			pElt.style.opacity = "0";
 		}, 1000);
-
+		
+		
+	
+		function treatForm(e){
+			e.preventDefault();
+			nbOfCols = this.elements.dataCol.value;
+						
+			if(this.elements.containerWidth.value){
+				containerWidth = this.elements.containerWidth.value;
+			}
+			
+			containerElt.style.width = containerWidth + "%";
+			colWidth = (99 - nbOfCols) / nbOfCols;
+			pxOfMargin = window.innerWidth*(containerWidth / 100) / 100;
+			positionImages(articlesElt);
+		}
+		
+		formElt.addEventListener("submit", treatForm);
 	});
 
 </script>
