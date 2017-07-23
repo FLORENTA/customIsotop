@@ -80,7 +80,7 @@
 		}
 		
 		#getCode{
-			height: 200px;
+			height: 300px;
 			width: 80%;
 			overflow-y: scroll;
 			margin: 20px auto;
@@ -510,27 +510,19 @@
 			for (var i = 0; i < x.length; ++i) {
 
 				x[i].style.width = colWidth + "%";
+				
+				if(i === 0 || i % nbOfCols === 0){
+					x[i].style.left = pxOfMargin + "px";
+				}
+				else{
+					x[i].style.left = x[i - 1].offsetLeft + parseFloat(getComputedStyle(x[i - 1]).width) + pxOfMargin + "px";
+				}
 
 				if (i < nbOfCols) {
-
 					x[i].style.top = pxOfMargin + "px";
-
-					if (i === 0) {
-						x[i].style.left = pxOfMargin + "px";
-					}
-					else {
-						x[i].style.left = x[i - 1].offsetLeft + parseFloat(getComputedStyle(x[i - 1]).width) + pxOfMargin + "px";
-					}
 				}
 				else {
 					x[i].style.top = x[i - nbOfCols].offsetTop + parseFloat(getComputedStyle(x[i - nbOfCols]).height) + 5 + "px";
-
-					if (i % nbOfCols === 0) {
-						x[i].style.left = pxOfMargin + "px";
-					}
-					else {
-						x[i].style.left = x[i - 1].offsetLeft + parseFloat(getComputedStyle(x[i - 1]).width) + pxOfMargin + "px";
-					}
 				}
 
 				x[i].style.transition = "opacity 500ms";
@@ -634,27 +626,19 @@
 			for (var i = 0; i < x.length; ++i) {
 
 				x[i].style.width = colWidth + "%";
+				
+				if(i === 0 || i % nbOfCols === 0){
+					x[i].style.left = pxOfMargin + "px";
+				}
+				else{
+					x[i].style.left = x[i - 1].offsetLeft + parseFloat(getComputedStyle(x[i - 1]).width) + pxOfMargin + "px";
+				}
 
 				if (i < nbOfCols) {
-
 					x[i].style.top = pxOfMargin + "px";
-
-					if (i === 0) {
-						x[i].style.left = pxOfMargin + "px";
-					}
-					else {
-						x[i].style.left = x[i - 1].offsetLeft + parseFloat(getComputedStyle(x[i - 1]).width) + pxOfMargin + "px";
-					}
 				}
 				else {
 					x[i].style.top = x[i - nbOfCols].offsetTop + parseFloat(getComputedStyle(x[i - nbOfCols]).height) + 5 + "px";
-
-					if (i % nbOfCols === 0) {
-						x[i].style.left = pxOfMargin + "px";
-					}
-					else {
-						x[i].style.left = x[i - 1].offsetLeft + parseFloat(getComputedStyle(x[i - 1]).width) + pxOfMargin + "px";
-					}
 				}
 
 				x[i].style.transition = "opacity 500ms";
